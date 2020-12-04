@@ -5,8 +5,8 @@
     </div>
     <div class="search">
       <div class="searchbar">
-        <input type="text">
-        <div class="search-btn">
+        <input type="text" v-model="searchString" >
+        <div class="search-btn" @click="search">
           <i class="fas fa-search"></i>
         </div>
       </div>
@@ -22,7 +22,16 @@ export default {
   name: 'Header',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      searchString:'',
+    }
+  },
+  mounted() {
+    let s = this.$route.query.s
+    if(s) this.searchString = decodeURIComponent(s)
+  },
+  methods:{
+    search(){
+      this.$router.push(`/search?s=${encodeURIComponent(this.searchString)}`)
     }
   }
 }

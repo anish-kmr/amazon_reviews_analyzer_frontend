@@ -21,4 +21,20 @@ export default {
   padding:0;
   box-sizing: border-box;
 }
+a{
+  text-decoration: none;
+}
+.btn{
+  background-color: #febd69;
+  padding:7.5px 15px;
+  border-radius: 5px;
+  color:#252525;
+  transition: .6s all;
+}
+.btn:hover{
+  cursor: pointer;
+  transition: .3s all;
+  background-color:#f6aa46 ;
+
+}
 </style>
