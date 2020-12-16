@@ -24,6 +24,7 @@ export default {
 a{
   text-decoration: none;
 }
+li{list-style-type: none;}
 .btn{
   background-color: #febd69;
   padding:7.5px 15px;
@@ -36,5 +37,12 @@ a{
   transition: .3s all;
   background-color:#f6aa46 ;
 
+}
+.vue-progress-path .progress {
+  stroke: #231f20;
+}
+
+.vue-progress-path .background {
+  stroke: #ececec;
 }
 </style>

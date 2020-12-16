@@ -5,7 +5,7 @@
     </div>
     <div class="search-results-container">
       <ul>
-        <li v-for="(product,i) in searchResults" :key="i" class="product-container"  >
+        <li v-for="(product,i) in searchResults" :key="i" class="product-container" @click="()=>detailedPage(product.amazonLink)"  >
           <div class="product-image">
             <img :src="product.image" alt="" srcset="">
           </div>
@@ -52,6 +52,11 @@ export default {
       console.log('Error searching :' ,err)
     })
   },
+  methods: {
+    detailedPage(url){
+      this.$router.push('/dp?p='+encodeURIComponent(url))
+    }
+  },
 }
 </script>
 
@@ -92,9 +97,13 @@ export default {
   padding:10px;
   border-bottom: 1px solid #efefef;
 }
+.product-container:hover{
+  cursor: pointer;
+}
+.product-image{text-align: center;}
 .product-image img{
-  height: 200px;
-  width: 200px;
+  /* height: 200px; */
+  /* width: 200px; */
 }
 .product-info>div{
   margin-bottom: 6px;

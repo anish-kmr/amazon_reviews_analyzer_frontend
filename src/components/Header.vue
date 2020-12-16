@@ -1,11 +1,11 @@
 <template>
   <div id="header">
-    <div class="logo">
+    <div class="logo" @click="homepage()">
       <img src="@/assets/amazon/58.png" alt="" srcset="">
     </div>
     <div class="search">
       <div class="searchbar">
-        <input type="text" v-model="searchString" >
+        <input type="text" v-model="searchString" @keyup.enter="search">
         <div class="search-btn" @click="search">
           <i class="fas fa-search"></i>
         </div>
@@ -31,7 +31,10 @@ export default {
   },
   methods:{
     search(){
-      this.$router.push(`/search?s=${encodeURIComponent(this.searchString)}`)
+      this.$router.replace(`/search?s=${encodeURIComponent(this.searchString)}`)
+    },
+    homepage(){
+      this.$router.push('/')
     }
   }
 }
@@ -44,6 +47,9 @@ export default {
   display: grid;
   grid-template-columns: 15% 65% auto ;
   align-items: center;
+}
+.logo:hover{
+  cursor: pointer;
 }
 .searchbar{
   position: relative;
